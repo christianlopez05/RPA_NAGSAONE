@@ -1,0 +1,21 @@
+# Compilación
+bin/
+obj/
+.vs/
+*.user
+
+# Configuración real de cada robot: puede tener usuarios y rutas de la máquina. Se versiona solo appsettings.ejemplo.json.
+# Las claves nunca van en archivos: variables de entorno del usuario del robot (ver README).
+**/appsettings.json
+**/appsettings.*.json
+!**/appsettings.ejemplo.json
+
+# Instaladores compilados: se publican como artefacto, no se versionan.
+salida/
+publicar/
+
+# Capturas, exploraciones y archivos de trabajo del robot
+Capturas/
+Exploracion/
+Logs/
+*.ASC

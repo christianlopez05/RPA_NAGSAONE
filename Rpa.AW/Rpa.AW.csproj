@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Robot de A+W: maneja la ventana del cliente A+W Business con FlaUI. Se instala en la máquina que tiene A+W. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <!-- -windows: necesario para UI Automation (FlaUI). El robot solo corre en Windows con sesión abierta. -->
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Rpa.AW</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FlaUI.Core" Version="4.0.0" />
+    <PackageReference Include="FlaUI.UIA3" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rpa.Comun\Rpa.Comun.csproj" />
+    <ProjectReference Include="..\Rpa.AW.Flujos\Rpa.AW.Flujos.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- appsettings.json no se versiona (ver .gitignore); se copia si existe. La plantilla es appsettings.ejemplo.json. -->
+    <None Update="appsettings.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('appsettings.json')" />
+    <None Update="appsettings.ejemplo.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
